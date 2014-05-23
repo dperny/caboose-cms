@@ -50,5 +50,10 @@ Gem::Specification.new do |s|
   s.add_dependency "awesome_print"
   s.add_dependency "ejs"
   s.add_dependency "httparty"
+
+  # development dependancies
+  s.add_development_dependency "rspec-rails"
+  # sqlite3 for the dummy app
+  s.add_development_dependency "sqlite3"
   
 end
