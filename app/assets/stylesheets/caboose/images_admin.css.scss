@@ -1,0 +1,21 @@
+.image-grid {
+  // preview is a grid of images
+  .preview {
+    margin: 0;
+    // border box for great justice
+    box-sizing: border-box;
+    // 5 previews per line
+    width: 20%;
+    // the height of the div comp
+    float: left;
+    padding: 5px;
+    text-align: center;
+    &:hover {
+      background-color: silver;
+    }
+  }
+  // upload is the box for uploading 
+  .upload {
+  }
+}
+    

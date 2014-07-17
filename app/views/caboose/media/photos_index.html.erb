@@ -1,0 +1,38 @@
+<div id='crumbtrail'>
+  <a href='/admin'>Admin</a> > 
+  Photos
+</div>
+
+<h1>Photos</h1>
+
+<!-- grid of images -->
+<div class="image-grid">
+  <!-- first one is a spot one can upload to -->
+  <a href="/admin/media/photos/new">
+    <div class="preview new">
+      <p>Upload New Image</p>
+    </div>
+  </a>
+  <!-- following it is the megapile of images -->
+  <% @images.each do |images| %>
+    <div class="preview">
+      <%= image_tag image.image.url(:thumb) %>
+    </div>
+  <% end %>
+</div><!-- .grid -->
+
+<p><%= raw @gen.generate %></p>
+
+<% content_for :caboose_js do %>
+<script>
+  function resize(){
+    var div = $('.preview');
+    var width = div.width();
+
+    div.css('height', width);
+  }
+
+  $(document).ready(resize);
+  $(window).resize(resize);
+</script>
+<% end %>

@@ -229,7 +229,11 @@ class Caboose::Schema < Caboose::Utilities::Schema
         [ :time_start   , :integer  ],
         [ :gmt_offset   , :integer  ],
         [ :dst          , :boolean  ]        
-      ]            
+      ],
+      Caboose::Photo => [
+        [ :image , :attachment  ],
+        [ :title , :string      ],
+      ]
     }
 
   end

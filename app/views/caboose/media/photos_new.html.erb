@@ -1,0 +1,37 @@
+<h1>Upload New Image</h1>
+<form action='/admin/media/photos' method='post' id='photo_form'>
+  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+  <!-- the image being uploaded -->
+  <input type='file' name='image'>
+  <!-- the title or name of the image -->
+  <input type='text' name='title'>
+  <div id='message'></div>
+  <p>
+    <input type='button' value='< Back' onclick="window.location'/admin/media/photos';">
+    <input type='submit' value='Upload Image' onclick="submit(); return false;">
+  </p>
+</form>
+
+<% content_for :caboose_js do %>
+  <%= javascript_include_tag "caboose/model/all" %>
+  <script>
+
+    function submit() {
+      $('#message').html("<p class='loading'>Adding Photo...</p>");
+      $.ajax({
+        url: '/admin/media/photos',
+        type: 'post',
+        data: $('#photo_form').serialize(),
+        success: function(resp) {
+          if(resp.error) $('#message').html("<p class='note error'>" + resp.error + "</p>");
+          if(resp.redirect) window.location = resp.redirect;
+        }
+      });
+    }
+
+    var modal = false;
+    $(window).load(function() {
+      modal = new CabooseModal(800);
+    });
+  </script>
+<% end %>

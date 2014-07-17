@@ -13,6 +13,7 @@
  *= require caboose/fonts
  *= require caboose/caboose
  *= require caboose/model_binder
+ *= require caboose/images_admin
  */
 
 #cboxLoadedContent { margin-bottom: 0; }

@@ -179,6 +179,11 @@ Caboose::Engine.routes.draw do
   put     "admin/ab-options/:id"                  => "ab_options#admin_update"
   post    "admin/ab-variants/:variant_id/options" => "ab_options#admin_create"
   delete  "admin/ab-options/:id"                  => "ab_options#admin_delete"
+
+  # Photos
+  get     "admin/media/photos"      => "media#photos_index"
+  get     "admin/media/photos/new"  => "media#photos_new"
+  post    "admin/media/photos"      => "media#photos_create"
   
   # API
   get "caboose/block-types"       => "block_types#api_block_type_list"
